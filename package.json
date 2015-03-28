@@ -1,6 +1,6 @@
 {
   "name": "promise-every-series",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Given an array of methods that return promises, execute in series and return true if all satisfy a test.",
   "contributors": {
     "name": "Cache Hamm",
@@ -14,7 +14,7 @@
     "es6-promise": "^2.0.1",
     "promise-series-node": "0.0.1"
   },
-  "repository": "https://github.com/cdhamm/promise-every-node",
+  "repository": "https://github.com/cdhamm/promise-every-series",
   "devDependencies": {
     "chai": "^2.2.0",
     "mocha": "^2.2.1"
