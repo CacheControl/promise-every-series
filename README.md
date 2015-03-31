@@ -35,7 +35,7 @@ var superDuperSlow = function() {
   });
 };
 
-promiseSeries([superFast, sortaSlow, superDuperSlow], function(res) {
+everySeries([superFast, sortaSlow, superDuperSlow], function(res) {
   return res === true; //only promises that resolve(true) pass the test
 }).then( (result) => {
   console.log(result);
