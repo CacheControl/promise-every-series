@@ -4,14 +4,17 @@ var Promise = require('es6-promise').Promise;
 var promiseSeries = require('promise-series-node');
 
 module.exports = function(array, testCallback) {
-  testCallback = testCallback || function() {}
-  
   return new Promise(function(resolve, reject) {
+    if(!(testCallback instanceof Function)) {
+      return resolve(false);
+    }
     if(!(array instanceof Array) || !array.length) { //empty/non arrays can't pass any test
       return resolve(false);
     }
     promiseSeries(array, testCallback).then(function(results) {
-      resolve(results.every(testCallback));
+      //have to double check last result, since promise-series will return
+      //the halt-condition's failure value in the results.
+      resolve(testCallback(results[results.length - 1]));
     });
   });
 };
